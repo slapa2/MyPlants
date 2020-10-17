@@ -33,10 +33,13 @@ class UserPlant(models.Model):
     def __str__(self):
         return f'{self.plant.poish_name} [{self.name}]'
 
+
 class PlantEvent(models.Model):
-    name = models.CharField(max_length=200)
+    event = models.CharField(max_length=200)
     desctiption = models.TextField(null=True, blank=True)
     event_date = models.DateField(default=date.today)
+    user_plant = models.ForeignKey(UserPlant, on_delete=models.CASCADE)
+    plant_owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = DateTimeField(auto_now=True)

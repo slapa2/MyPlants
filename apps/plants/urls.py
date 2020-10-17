@@ -9,4 +9,6 @@ urlpatterns = [
 
     path('userplant', views.UserPlantList.as_view()),
     path('userplant/<int:pk>', views.UserPlantDetails.as_view()),
+    path('userplant/event/create', views.PlantEventCreate.as_view()),
+    path('userplant/event/<int:pk>', views.PlantEventDetails.as_view()),
 ]
