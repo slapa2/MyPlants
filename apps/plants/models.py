@@ -35,11 +35,18 @@ class UserPlant(models.Model):
 
 
 class PlantEvent(models.Model):
-    event = models.CharField(max_length=200)
+
+    EVENTS = (
+        ('watering', 'podlewanie'),
+        ('fertilization', 'nawożenie'),
+        ('transplantation', 'przesadzanie'),
+        ('other', 'inne'),
+    )
+
+    event = models.CharField(max_length=200, choices=EVENTS)
     desctiption = models.TextField(null=True, blank=True)
     event_date = models.DateField(default=date.today)
     user_plant = models.ForeignKey(UserPlant, on_delete=models.CASCADE)
-    plant_owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = DateTimeField(auto_now=True)
