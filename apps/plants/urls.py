@@ -1,9 +1,13 @@
 
-from django.urls import path
+from django.db import router
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 
 from . import views
 
+router = DefaultRouter()
+router.register(r'', views.PlantViewSet)
+
 urlpatterns = [
-    path('', views.PlantList.as_view()),
-    path('<int:pk>', views.PlantDetail.as_view(), name='plant-detail'),
+    path('', include(router.urls)),
 ]
