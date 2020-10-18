@@ -8,11 +8,11 @@ from rest_framework.fields import ChoiceField
 from apps.plants.models import Plant
 
 
-class PlantSerializer(serializers.ModelSerializer):
+class PlantSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Plant
-        fields = ['id', 'latin_name', 'polish_name', 'image']
+        fields = ['id', 'url', 'latin_name', 'polish_name', 'image']
         queryset = Plant.objects.all()
 
 
