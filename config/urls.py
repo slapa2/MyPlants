@@ -18,9 +18,12 @@ from rest_framework.routers import DefaultRouter
 
 from django.contrib import admin
 from apps.plants import views as plant_views
+from apps.books import views as book_view
 
 router = DefaultRouter()
 router.register(r'api/plants', plant_views.PlantViewSet)
+router.register(r'api/book', book_view.BookViewSet)
+router.register(r'api/bookplant', book_view.PlantBookViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

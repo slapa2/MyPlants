@@ -44,7 +44,8 @@ INSTALLED_APPS = [
 
     'apps.users',
     'apps.plants',
-    'apps.users_plants'
+    'apps.users_plants',
+    'apps.books',
 ]
 
 MIDDLEWARE = [
